@@ -14,9 +14,9 @@ future: true
 # SNS settings
 RSS: false
 weibo_username:     u/2465540232
-zhihu_username:     wujizhishang
+zhihu_username:    people/songweiren
 github_username:    DarrenSong
-twitter_username:   Darren
+#twitter_username:   Darren
 #facebook_username:  Darren
 #linkedin_username:  firstname-lastname-idxxxx
 
