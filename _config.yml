@@ -13,9 +13,9 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     Darren
-zhihu_username:     Darren
-github_username:    Darren
+weibo_username:     u/2465540232
+zhihu_username:     wujizhishang
+github_username:    DarrenSong
 twitter_username:   Darren
 #facebook_username:  Darren
 #linkedin_username:  firstname-lastname-idxxxx
@@ -59,7 +59,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+disqus_username: Darren
 
 # Netease settings
 netease_comment: false
@@ -71,7 +71,7 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
 ga_domain: sfnr.top
 
 
