@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Qt Creator5.8调用大漠插件"
+date:   2017-04-14 22:49:52 +0800
+categories: Qt
+tags: C_or_CPP
+---
+在网上找了很多，没找到这方面的教程，通过Qt官方帮助终于调试成功。Qt有专门的类实现com组件的调用，说明文档上有很多种方式，这里简单说明一种方式。
+
+第一步、在头文件中添加需要的头文件
+```C++
+#include<QDir>
+#include<QProcess>
+#include<QAxWidget>  
+```
+第二步、在Pro文件中添加配置代码
+```
+QT += axcontainer
+```
+第三步、大漠插件是com组件需注册才能使用
+```C++
+//自动注册大漠插件 
+void AutoRegCom() 
+{ 
+    QString path;
+    path=QCoreApplication::applicationDirPath();//获取程序运行路径 
+    QString cmdStr="Regsvr32"+path+"/dm.dll /s"; 
+    QProcess p(0); 
+    p.start("cmd",QStringList()<<"/c"<<cmdStr); 
+    p.waitForStarted(); p.waitForFinished();
+}
+```
+第四步、在主函数中调用AutoRegCom()实现自动注册
+
+ 
+
+第五步、创建activex对象指针
+```C++
+QAxWidget *fla=new QAxWidget();
+```
+第六步、初始化大漠对象
+```C++
+fla->setControl(QString::fromUtf8("{26037A0E-7CBD-4FFF-9C63-56F2D0770214}"));//id通过vc6.0的ole view工具查看
+```
+第七步、通过dymamicCall调用大漠里面的函数，格式如下
+```C++
+fla->dynamicCall("MoveTo(int,int)",200,200);
+```

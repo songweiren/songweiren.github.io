@@ -1,0 +1,52 @@
+---
+layout: post
+title:  "WIN7下C#调用大漠插件"
+date:   2017-03-12 22:49:52 +0800
+categories: C#
+tags: C_Sharp
+---
+关于大漠插件，网上看了很多教程，自己走了很多坑，终于调试成功，现在将坑公之于众。
+第一步，首先选择调试平台，大漠插件只支持32位编译，如果不选择实例化大漠对象的时候会出现没有注册类的报错，这个坑了我很久，如下图所示，右键程项目->属性
+
+第二步，在引用中引用COM组件dm.dll
+第三步，添加命名空间Dm
+代码如下：
+```C#
+using Dm;
+```
+第四步，注册大漠插件（参考网上大神）
+```C#
+static bool AutoRegCom()
+    {
+    
+      string strCmd = "regsvr32 " + "\\image\\dm.dll /s";
+      string rInfo;
+      try
+      {
+        Process myProcess = new Process();
+        ProcessStartInfo myProcessStartInfo = new ProcessStartInfo("cmd.exe");
+        myProcessStartInfo.UseShellExecute = false;
+        myProcessStartInfo.CreateNoWindow = true;
+        myProcessStartInfo.RedirectStandardOutput = true;
+        myProcess.StartInfo = myProcessStartInfo;
+        myProcessStartInfo.Arguments = "/c " + strCmd;
+        myProcess.Start();
+        StreamReader myStreamReader = myProcess.StandardOutput;
+        rInfo = myStreamReader.ReadToEnd();
+        myProcess.Close();
+        rInfo = strCmd + "\r\n" + rInfo;
+       // return rInfo;
+        return true;
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show("大漠插件调用出问题！"+ex.Message);
+        //return ex.Message;
+        return false;
+      }
+    }
+```
+第五步，调用大漠插件
+在程序初始化的时候调用l AutoRegCom()，自动注册插件
+注册好后实例化对象，即可使用
+dmsoft dm=new dmsoft();

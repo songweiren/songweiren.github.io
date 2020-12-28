@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "Find the sub max value of an array[查找给定数组的次大值]"
+date:   2020-10-24 22:49:52 +0800
+categories: C/C++
+tags: C_or_CPP
+---
+```c++
+int subMax(int a[],int n)
+{
+  int max=a[0];
+  int sub_max=a[0];
+ 
+  for (int i = 1; i < n; i++)
+  {
+    if(a[i]>max)
+    {
+      //update max and sub max
+      sub_max=max;
+      max=a[i];
+    }
+    else if(a[i]<max)
+    {
+      if(a[i]>sub_max)
+      {//update sub max
+        sub_max=a[i];
+      }
+    }
+    else
+    {
+      //do nothing
+    }
+  }
+ 
+  return sub_max;
+}
+```
+
+In spite of the strong wind,life never gives up.
+
+纵有疾风起，人生不言弃。

@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "Git 之常用设置"
+date:   2019-05-18 22:49:52 +0800
+categories: Git
+---
+用户设置
+```
+git config --global user.name "FNR_S"
+	
+git config --global user.email QQ@QQ.com
+	
+git config --global credential.helper manager
+```
+
+推荐设置：
+```
+# make an alias for "long listing" (double lower Case L):	
+git config --global alias.ll "log --oneline --decorate --graph --all"
+	 	
+# use notepad++ for commit Messages, rebase Control etc.:	
+git config --global core.editor "'C:/app/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+	 	
+# make git to remove local copies of tags/branches that are no more available on the remote:	
+git config –global fetch.prune true
+	 	
+# force a rebase instead of merge whenever you pull	
+git config –global pull.rebase true
+```
+
+配置第三方diff和merge软件：
+- 配置BCompare为diff工具：
+  ```
+  git config --global diff.guitool bc4
+			
+  git config --global difftool.bc4.path "C:/app/Tools/Beyond Compare 4/BCompare.exe"
+	
+  git config --global difftool.bc4.trustExitCode false
+  ```
+- 配置BCompare为merge工具：
+  ```
+  git config --global merge.tool bc4
+		
+  git config --global mergetool.bc4.path "C:/app/Tools/Beyond Compare 4/BCompare.exe"
+ 
+  git config --global mergetool.bc4.trustExitCode false
+  ```
