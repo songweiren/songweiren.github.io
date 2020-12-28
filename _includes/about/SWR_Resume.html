@@ -1,0 +1,553 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>SWR_Resume</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><p><strong><span>宋伟任</span></strong><span>                                手机:18801910690</span></p><p><span>上海大学|工学硕士           邮箱：</span><a href='mailto:songweiren_shu@163.com' target='_blank' class='url'>songweiren_shu@163.com</a><span>                                 </span><img src=".\image\header.jpg" alt="header" style="zoom:12%;" /></p><p><span>											</span><span>出生年月：1992年4月</span></p><p><strong><span>Blog</span></strong><span>:        </span><a href='https://blog.csdn.net/wujizhishang' target='_blank' class='url'>https://blog.csdn.net/wujizhishang</a></p><p><strong><span>Github</span></strong><span>:    </span><a href='https://github.com/DarrenSong' target='_blank' class='url'>https://github.com/DarrenSong</a></p><p><strong><em><span>求职意向</span></em></strong><span> ：软件工程师，算法工程师</span></p><p><span>本人硕士研究生毕业已两年多，第一年在云科伺服工作，主要负责在DSP2812平台上的通讯模块开发(C语言)，熟悉工业现场总线，如MIII、CANOpen和TCP/IP等协议。云科关门后，转到采埃孚工作至今，主要做TCU应用层软件开发，主要用C++，主控MCU是MPC5644，通讯协议以J1939为主。本人精通C语言，熟悉C++、C#和Matlab，Python等编程语言，熟悉CC、Git、SVN等版本控制软件及DOORS，CQ和Integrity等需求管理软件，也熟悉Windows和Unbutu下的的程序开发,熟练使用VS2013/Source Insight/CCS3.3/Keil5.0等IDE,熟悉MakeFile文件和CMake及Shell脚本。本人勤奋努力，踏实好学，且有良好的团队意识，能够尽快的融入团队。</span></p><hr /><h5><a name="教育经历" class="md-header-anchor"></a><span>教育经历</span></h5><hr /><table border="0">
+    <tbody><tr>
+        <td>2010.9-2014.7</td>
+        <td align="center"><b>上海大学</b>  (机械工程及自动化)</td>
+        <td align="center">本科|学士</td>
+    </tr>
+        <tr>
+        <td>2014.9-2017.6</td>
+        <td align="center"><b>上海大学</b>  (机械电子工程)</td>
+        <td align="center"> 研究生|硕士</td>
+    </tr>
+</tbody></table><h5><a name="工作经历" class="md-header-anchor"></a><span>工作经历</span></h5><hr /><table width="400" border="0">
+    <tbody><tr>
+        <td>2017.6-2018.8</td>
+        <td align="center">云科智能伺服控制技术有限公司</td>
+        <td align="center">软件工程师</td>
+    </tr>
+        <tr>
+        <td>2018.8-至今</td>
+        <td align="center"><b>采埃孚（中国）投资有限公司</b></td>
+        <td align="center">电子软件工程师</td>
+    </tr>
+</tbody></table><h5><a name="项目经历" class="md-header-anchor"></a><span>项目经历</span></h5><hr /><ul><li><p><span>项目名称：伺服驱动器通信模块开发（云科智能伺服公司）</span></p><p><span>项目描述：伺服驱动器M3通讯协议和CANOpen通讯协议部分程序的开发，开发平台为DSP2812，开发环境是CCS3.3编程语言为C语言，主要实现通讯数据链路层及应用层的功能函数</span></p></li><li><p><span>项目名称：基于Windows的C++封包拦截工具（云科智能伺服公司）</span></p><p><span>项目描述：开发环境是Qt，主要实现功能：捕获网卡数据，过滤无用信息，解析从站的数据包 </span></p></li><li><p><span>项目名称：基于Windows的伺服驱动器调试软件（云科智能伺服公司）</span></p><p><span>项目描述：开发环境为Visual Studio 2015，编程语言为C#（WinForm），通过串口通讯，协议为自定义协议，实现主要功能：对伺服驱动参数的读写修改功能以及示波器绘制电机运动波形图</span></p></li><li><p><span>项目名称：TCU换挡策略调整（采埃孚）</span></p><p><span>项目描述：TCU原本两个换挡杆，CAN Shift Lever 优先级较高，而FNR Lever 优先级比较低。客户需求为不区分优先级，只要有一个在空档，另外一个就可以正常工作。完成代码逻辑更改，执行Unit test，SIL和HIL test，交付软件 </span></p></li><li><p><span>项目名称：增加backup error memory（采埃孚）</span></p><p><span>项目描述：用10个word大小的eeprom 作为Backup error memory，通过更改每个error 的的Control Byte 实现是否让此error 进入Backup error memory.目前，只能ZF自己有权限可以清除Backup error memory，用户不能清除。  </span></p></li><li><p><span>项目名称：增加CAN message用于反馈TCU的IO信号（采埃孚）</span></p><p><span>项目描述：客户需要从CAN message中读取TCU IO信号，ZF 提供一个广播报文用于反馈状态（AUXIO1）</span></p></li></ul><h5><a name="专业技能" class="md-header-anchor"></a><span>专业技能</span></h5><hr /><p><span>C/C++、C#、Python、Shell、makefile、markdown、数据结构与算法、Vector工具链(CANape,CANoe,CANalyzer)</span></p><h5><a name="综合技能" class="md-header-anchor"></a><span>综合技能</span></h5><hr /><ul><li><span>语言能力 ：中文（母语），英语（中级）</span></li><li><span>证书：全国计算机二级C语言，大学生节能减排大赛三等奖，普通话二级乙等</span></li><li><span>其他技能：C1驾照，ISTQB Certified Tester</span></li></ul><center>*****<b>English Version</b>*****</center><p><strong><span>Weiren SONG</span></strong><span>                                Phone:18801910690</span></p><p><span>Shanghai University| Master           E-Mail：</span><a href='mailto:songweiren_shu@163.com' target='_blank' class='url'>songweiren_shu@163.com</a><span>                                 </span><img src=".\image\header.jpg" alt="header" style="zoom:12%;" /></p><p><span>											</span><span>birthday：1992.04</span></p><p><strong><span>Blog</span></strong><span>:        </span><a href='https://blog.csdn.net/wujizhishang' target='_blank' class='url'>https://blog.csdn.net/wujizhishang</a></p><p><strong><span>Github</span></strong><span>:    </span><a href='https://github.com/DarrenSong' target='_blank' class='url'>https://github.com/DarrenSong</a></p><p><strong><em><span>Job Intention</span></em></strong><span> ：Software Engineer，Algorithm Engineer</span></p><p><span>I have graduated from the master&#39;s degree for almost 3 years. I have worked at Yunke servo for 1 year. In Yunke, I was responsible for the development of the communication module on the DSP2812 platform using C. I am familiar with the some communication protocol such as MIII, CANOpen, and TCP/IP etc, also good at the programming languages such as C/C++, C# and Matlab. I am familiar with program development on Windows and Unbutu. I joined ZF(China) as a software engineer in 8.2018. I develop the function of local customer requirements with Germany team using C++, and also do some on-site supports for local customers. I am proficient in some softwares such as VS2013/Source Insight/CCS3.3/Keil5.0 for coding and Git,ClearCase for version control and so on. I am hardworking, practical and studious, and have a good sense of teamwork and can integrate into the team as soon as possible. Personal WebSite: </span><a href='http://www.songweiren.top' target='_blank' class='url'>www.songweiren.top</a></p><hr /><h5><a name="education" class="md-header-anchor"></a><span>Education</span></h5><hr /><table border="0">
+    <tbody><tr>
+        <td>2010.9-2014.7</td>
+        <td align="center"><b>Shanghai University</b>  (Mechatronic Engineering &amp; Automation)</td>
+        <td align="center">Bachelor</td>
+    </tr>
+        <tr>
+        <td>2014.9-2017.6</td>
+        <td align="center"><b>Shanghai University</b>  (Mechatronic &amp; Electric Engineering)</td>
+        <td align="center"> Master</td>
+    </tr>
+</tbody></table><h5><a name="work-experience" class="md-header-anchor"></a><span>Work Experience</span></h5><hr /><table width="400" border="0">
+    <tbody><tr>
+        <td>2017.6-2018.8</td>
+        <td align="center">YunKe Intelligent Servo Control Technology Co., Ltd.</td>
+        <td align="center">SW Engineer</td>
+    </tr>
+        <tr>
+        <td>2018.8-To Present</td>
+        <td align="center"><b> ZF (China) Investment Co., Ltd.</b></td>
+        <td align="center">SW Engineer</td>
+    </tr>
+</tbody></table><h5><a name="projects-experience" class="md-header-anchor"></a><span>Projects Experience</span></h5><hr /><ul><li><p><span>Project Name：Develop the communication module of Servo driver(YunKe Servo)</span></p><p><span>Description：develop MIII and CANOpen communication protocol part for Servo driver on DSP2812 platform, and programming language is C language</span></p></li><li><p><span>Project Name：Sniffer Tool Via C++ based on Windows (YunKe Servo)</span></p><p><span>Description：The IDE I used is Qt, I implement the coding for capturing the data and decode the data.</span></p></li><li><p><span>Project Name：Windows PC Software for config Servo driver(YunKe Servo)</span></p><p><span>Description：develop the Windows PC software that be used to config servo driver using C#，which contain Oscilloscope. The IDE used is Visual Studio 2015, and the programming language is C# (WinForm). The PC software send command to servo driver to config the parameter by serial port.</span></p></li><li><p><span>Project Name：Change the Gear shift strategy of TCU (ZF China)</span></p><p><span>Description： there are 2 shift lever on the vehicle, the one is CAN shift lever, and another one is digital FNR lever. We need change the propriety of these levers regarding different customer requirements. </span></p></li><li><p><span>Project Name：add the backup error memory for TCU (ZF China)</span></p><p><span>Description：some error codes of TCU is the key point for solving the actual problem. So these error codes should not be clear by user, they should only be deleted by manufacturer. 。  </span></p></li><li><p><span>Project Name：add a broadcast CAN message from J1939(AUXIO1) (ZF China)</span></p><p><span>Description：a part of our customer need the IO signals from TCU, so we need give a feedback of our signals. The general solution is that TCU broadcast a CAN message which include all IO signals of TCU for this purpose, so they can get the signals from this message</span></p></li></ul><h5><a name="professional-skills" class="md-header-anchor"></a><span>Professional Skills</span></h5><hr /><p><span>C/C++、C#、Python、Shell、makefile、markdown、Data Structures And Algorithms、VectorTools(CANape,CANoe,CANalyzer)</span></p><h5><a name="integrated-skills" class="md-header-anchor"></a><span>Integrated Skills</span></h5><hr /><ul><li><span>Language ：Chinese, English</span></li><li><span>Certificate：National Computer Rank Examination, Energy Saving &amp;Emission Reduction</span></li><li><span>Other Skills：C1 driving license, ISTQB Certified Tester</span></li></ul></div>
+</body>
+</html>
