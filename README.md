@@ -1,3 +1,3 @@
 ### Darren Personal Bog
-<songweiren.github.io> <br>
-<sfnr.top>
+[songweiren](songweiren.github.io) 
+[snr](sfnr.top)
