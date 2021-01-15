@@ -5,6 +5,8 @@ date:   2021-01-15 22:49:52 +0800
 categories: Linux
 tags: Shell
 ---
+bash命令: bash <(curl -sL https://s.hijk.art/v2ray.sh)
+如果没有安装curl,先安装curl。CentOS：yum install -y curl Ubuntu：apt install -y curl
 ```bash
 #!/bin/bash
 # MTProto一键安装脚本
