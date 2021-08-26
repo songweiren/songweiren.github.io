@@ -2,20 +2,23 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>SWR_Resume</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
@@ -24,14 +27,14 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
 button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
 p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
 p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
@@ -47,7 +50,7 @@ sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); 
 sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
+figure > table { margin: 0px; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
@@ -64,7 +67,7 @@ div.hr:focus { cursor: none; }
 #write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
 .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 #write .md-fences.mock-cm { white-space: pre-wrap; }
 .md-fences.md-fences-with-lineno { padding-left: 0px; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
@@ -76,28 +79,32 @@ div.hr:focus { cursor: none; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
 li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child, li > :first-child { margin-top: 0px; }
 .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
   #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
 pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
 p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .md-math-block { width: 100%; }
 .md-math-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
 .md-task-list-item { position: relative; list-style-type: none; }
 .task-list-item.md-task-list-item { padding-left: 0px; }
 .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
@@ -130,27 +137,70 @@ kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 
 .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
 code { text-align: left; vertical-align: initial; }
 a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none 0s ease 0s; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
 [lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
-svg[id^="mermaidChart"] { line-height: 1em; }
 mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix { height: auto; margin-top: 16px; margin-bottom: 16px; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
 
 
 :root {
@@ -160,12 +210,17 @@ mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 @include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
-html {
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
@@ -176,6 +231,19 @@ body {
   	padding: 30px;
     padding-bottom: 100px;
 }
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
 #write > ul:first-child,
 #write > ol:first-child{
     margin-top: 30px;
@@ -230,17 +298,33 @@ h6 code {
     font-size: inherit;
 }
 h1 {
-    padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
 h2 {
-   padding-bottom: .3em;
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
 }
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
@@ -305,7 +389,7 @@ table {
     word-break: initial;
 }
 table tr {
-    border-top: 1px solid #dfe2e5;
+    border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
@@ -313,24 +397,24 @@ table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-table tr th {
+table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-table tr td {
+table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-table tr th:first-child,
-table tr td:first-child {
+table th:first-child,
+table td:first-child {
     margin-top: 0;
 }
-table tr th:last-child,
-table tr td:last-child {
+table th:last-child,
+table td:last-child {
     margin-bottom: 0;
 }
 
@@ -479,9 +563,9 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
-.html-for-mac .context-menu {
+/*.html-for-mac {
     --item-hover-bg-color: #E6F0FE;
-}
+}*/
 
 #md-notification .btn {
     border: 0;
@@ -489,6 +573,7 @@ header, .context-menu, .megamenu-content, footer{
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
+    opacity: 0.4;
 }
 
 .ty-preferences .window-content {
@@ -500,11 +585,17 @@ header, .context-menu, .megamenu-content, footer{
     background: #999;
 }
 
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
 
-</style>
+
+ :root {--mermaid-font-zoom:1.25em ;} 
+</style><title>SWR_Resume</title>
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><p><strong><span>宋伟任</span></strong><span>                                手机:18801910690</span></p><p><span>上海大学|工学硕士           邮箱：</span><a href='mailto:songweiren_shu@163.com' target='_blank' class='url'>songweiren_shu@163.com</a><span>                                 </span><img src=".\image\header.jpg" alt="header" style="zoom:12%;" /></p><p><span>											</span><span>出生年月：1992年4月</span></p><p><strong><span>Blog</span></strong><span>:        </span><a href='https://blog.csdn.net/wujizhishang' target='_blank' class='url'>https://blog.csdn.net/wujizhishang</a></p><p><strong><span>Github</span></strong><span>:    </span><a href='https://github.com/DarrenSong' target='_blank' class='url'>https://github.com/DarrenSong</a></p><p><strong><em><span>求职意向</span></em></strong><span> ：软件工程师，算法工程师</span></p><p><span>本人硕士研究生毕业已两年多，第一年在云科伺服工作，主要负责在DSP2812平台上的通讯模块开发(C语言)，熟悉工业现场总线，如MIII、CANOpen和TCP/IP等协议。云科关门后，转到采埃孚工作至今，主要做TCU应用层软件开发，主要用C++，主控MCU是MPC5644，通讯协议以J1939为主。本人精通C语言，熟悉C++、C#和Matlab，Python等编程语言，熟悉CC、Git、SVN等版本控制软件及DOORS，CQ和Integrity等需求管理软件，也熟悉Windows和Unbutu下的的程序开发,熟练使用VS2013/Source Insight/CCS3.3/Keil5.0等IDE,熟悉MakeFile文件和CMake及Shell脚本。本人勤奋努力，踏实好学，且有良好的团队意识，能够尽快的融入团队。</span></p><hr /><h5><a name="教育经历" class="md-header-anchor"></a><span>教育经历</span></h5><hr /><table border="0">
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><strong><span>宋伟任</span></strong><span>                                手机:18801910690</span></p><p><span>上海大学|工学硕士           邮箱：</span><a href='mailto:songweiren_shu@163.com' target='_blank' class='url'>songweiren_shu@163.com</a><span>                                 </span><img src=".\image\header.jpg" alt="header" style="zoom:12%;" /></p><p><span>											</span><span>出生年月：1992年4月</span></p><p><strong><span>Blog</span></strong><span>:        </span><a href='https://blog.csdn.net/wujizhishang' target='_blank' class='url'>https://blog.csdn.net/wujizhishang</a></p><p><strong><span>Github</span></strong><span>:    </span><a href='https://github.com/DarrenSong' target='_blank' class='url'>https://github.com/DarrenSong</a></p><p><strong><em><span>求职意向</span></em></strong><span> ：软件工程师，算法工程师</span></p><p><span>本人于2017年硕士研究生毕业，第一年在云科伺服工作，主要负责在DSP2812平台上的通讯模块开发(C语言)，熟悉工业现场总线，如MIII、CANOpen和TCP/IP等协议。云科关门后，在采埃孚工作两年半，主要做TCU应用层软件开发[C++]，主控MCU是MPC5644，通讯协议以J1939为主。现在联影医疗担任软件开发工程师。本人精通C语言，熟悉C++、C#和Matlab，Python等编程语言，熟悉CC、Git、SVN等版本控制软件及DOORS，CQ和Integrity等需求管理软件，熟悉Vector工具链的开发及使用，也熟悉Windows和Unbutu下的的程序开发,熟练使用VS2013/Source Insight/CCS3.3/Keil5.0等IDE,熟悉MakeFile文件和CMake及Shell脚本。本人勤奋努力，踏实好学，且有良好的团队意识，能够尽快的融入团队。</span></p><hr /><h5 id='教育经历'><span>教育经历</span></h5><hr /><table border="0">
     <tbody><tr>
         <td>2010.9-2014.7</td>
         <td align="center"><b>上海大学</b>  (机械工程及自动化)</td>
@@ -515,18 +606,23 @@ header, .context-menu, .megamenu-content, footer{
         <td align="center"><b>上海大学</b>  (机械电子工程)</td>
         <td align="center"> 研究生|硕士</td>
     </tr>
-</tbody></table><h5><a name="工作经历" class="md-header-anchor"></a><span>工作经历</span></h5><hr /><table width="400" border="0">
+</tbody></table><h5 id='工作经历'><span>工作经历</span></h5><hr /><table width="400" border="0">
     <tbody><tr>
         <td>2017.6-2018.8</td>
         <td align="center">云科智能伺服控制技术有限公司</td>
         <td align="center">软件工程师</td>
     </tr>
         <tr>
-        <td>2018.8-至今</td>
-        <td align="center"><b>采埃孚（中国）投资有限公司</b></td>
+        <td>2018.8-2021.2</td>
+        <td align="center">采埃孚（中国）投资有限公司</td>
         <td align="center">电子软件工程师</td>
     </tr>
-</tbody></table><h5><a name="项目经历" class="md-header-anchor"></a><span>项目经历</span></h5><hr /><ul><li><p><span>项目名称：伺服驱动器通信模块开发（云科智能伺服公司）</span></p><p><span>项目描述：伺服驱动器M3通讯协议和CANOpen通讯协议部分程序的开发，开发平台为DSP2812，开发环境是CCS3.3编程语言为C语言，主要实现通讯数据链路层及应用层的功能函数</span></p></li><li><p><span>项目名称：基于Windows的C++封包拦截工具（云科智能伺服公司）</span></p><p><span>项目描述：开发环境是Qt，主要实现功能：捕获网卡数据，过滤无用信息，解析从站的数据包 </span></p></li><li><p><span>项目名称：基于Windows的伺服驱动器调试软件（云科智能伺服公司）</span></p><p><span>项目描述：开发环境为Visual Studio 2015，编程语言为C#（WinForm），通过串口通讯，协议为自定义协议，实现主要功能：对伺服驱动参数的读写修改功能以及示波器绘制电机运动波形图</span></p></li><li><p><span>项目名称：TCU换挡策略调整（采埃孚）</span></p><p><span>项目描述：TCU原本两个换挡杆，CAN Shift Lever 优先级较高，而FNR Lever 优先级比较低。客户需求为不区分优先级，只要有一个在空档，另外一个就可以正常工作。完成代码逻辑更改，执行Unit test，SIL和HIL test，交付软件 </span></p></li><li><p><span>项目名称：增加backup error memory（采埃孚）</span></p><p><span>项目描述：用10个word大小的eeprom 作为Backup error memory，通过更改每个error 的的Control Byte 实现是否让此error 进入Backup error memory.目前，只能ZF自己有权限可以清除Backup error memory，用户不能清除。  </span></p></li><li><p><span>项目名称：增加CAN message用于反馈TCU的IO信号（采埃孚）</span></p><p><span>项目描述：客户需要从CAN message中读取TCU IO信号，ZF 提供一个广播报文用于反馈状态（AUXIO1）</span></p></li></ul><h5><a name="专业技能" class="md-header-anchor"></a><span>专业技能</span></h5><hr /><p><span>C/C++、C#、Python、Shell、makefile、markdown、数据结构与算法、Vector工具链(CANape,CANoe,CANalyzer)</span></p><h5><a name="综合技能" class="md-header-anchor"></a><span>综合技能</span></h5><hr /><ul><li><span>语言能力 ：中文（母语），英语（中级）</span></li><li><span>证书：全国计算机二级C语言，大学生节能减排大赛三等奖，普通话二级乙等</span></li><li><span>其他技能：C1驾照，ISTQB Certified Tester</span></li></ul><center>*****<b>English Version</b>*****</center><p><strong><span>Weiren SONG</span></strong><span>                                Phone:18801910690</span></p><p><span>Shanghai University| Master           E-Mail：</span><a href='mailto:songweiren_shu@163.com' target='_blank' class='url'>songweiren_shu@163.com</a><span>                                 </span><img src=".\image\header.jpg" alt="header" style="zoom:12%;" /></p><p><span>											</span><span>birthday：1992.04</span></p><p><strong><span>Blog</span></strong><span>:        </span><a href='https://blog.csdn.net/wujizhishang' target='_blank' class='url'>https://blog.csdn.net/wujizhishang</a></p><p><strong><span>Github</span></strong><span>:    </span><a href='https://github.com/DarrenSong' target='_blank' class='url'>https://github.com/DarrenSong</a></p><p><strong><em><span>Job Intention</span></em></strong><span> ：Software Engineer，Algorithm Engineer</span></p><p><span>I have graduated from the master&#39;s degree for almost 3 years. I have worked at Yunke servo for 1 year. In Yunke, I was responsible for the development of the communication module on the DSP2812 platform using C. I am familiar with the some communication protocol such as MIII, CANOpen, and TCP/IP etc, also good at the programming languages such as C/C++, C# and Matlab. I am familiar with program development on Windows and Unbutu. I joined ZF(China) as a software engineer in 8.2018. I develop the function of local customer requirements with Germany team using C++, and also do some on-site supports for local customers. I am proficient in some softwares such as VS2013/Source Insight/CCS3.3/Keil5.0 for coding and Git,ClearCase for version control and so on. I am hardworking, practical and studious, and have a good sense of teamwork and can integrate into the team as soon as possible. Personal WebSite: </span><a href='http://www.songweiren.top' target='_blank' class='url'>www.songweiren.top</a></p><hr /><h5><a name="education" class="md-header-anchor"></a><span>Education</span></h5><hr /><table border="0">
+        <tr>
+        <td>2021.3-至今</td>
+        <td align="center"><b>上海联影医疗科技股份有限公司</b></td>
+        <td align="center">软件开发工程师</td>
+    </tr>
+</tbody></table><h5 id='项目经历'><span>项目经历</span></h5><hr /><ul><li><p><span>项目名称：伺服驱动器通信模块开发（云科智能伺服公司）</span></p><p><span>项目描述：伺服驱动器M3通讯协议和CANOpen通讯协议部分程序的开发，开发平台为DSP2812，开发环境是CCS3.3编程语言为C语言，主要实现通讯数据链路层及应用层的功能函数</span></p></li><li><p><span>项目名称：基于Windows的C++封包拦截工具（云科智能伺服公司）</span></p><p><span>项目描述：开发环境是Qt，主要实现功能：捕获网卡数据，过滤无用信息，解析从站的数据包 </span></p></li><li><p><span>项目名称：基于Windows的伺服驱动器调试软件（云科智能伺服公司）</span></p><p><span>项目描述：开发环境为Visual Studio 2015，编程语言为C#（WinForm），通过串口通讯，协议为自定义协议，实现主要功能：对伺服驱动参数的读写修改功能以及示波器绘制电机运动波形图</span></p></li><li><p><span>项目名称：TCU换挡策略调整（采埃孚）</span></p><p><span>项目描述：TCU原本两个换挡杆，CAN Shift Lever 优先级较高，而FNR Lever 优先级比较低。客户需求为不区分优先级，只要有一个在空档，另外一个就可以正常工作。完成代码逻辑更改，执行Unit test，SIL和HIL test，交付软件 </span></p></li><li><p><span>项目名称：增加backup error memory（采埃孚）</span></p><p><span>项目描述：用10个word大小的eeprom 作为Backup error memory，通过更改每个error 的的Control Byte 实现是否让此error 进入Backup error memory.目前，只能ZF自己有权限可以清除Backup error memory，用户不能清除。  </span></p></li><li><p><span>项目名称：增加CAN message用于反馈TCU的IO信号（采埃孚）</span></p><p><span>项目描述：客户需要从CAN message中读取TCU IO信号，ZF 提供一个广播报文用于反馈状态（AUXIO1）</span></p></li><li><p><span>项目名称：球管放线控制模块开发（联影医疗）</span></p><p><span>项目描述：基于Linux下C++软件开发，基于SPI3和CANOpen与球管通讯，收集球管的反馈信息，控制球管工作。</span></p></li></ul><h5 id='专业技能'><span>专业技能</span></h5><hr /><p><span>C/C++、C#、Python、Shell、makefile、markdown、数据结构与算法、Vector工具链(CANape,CANoe,CANalyzer)</span></p><h5 id='综合技能'><span>综合技能</span></h5><hr /><ul><li><span>语言能力 ：中文（母语），英语（中级）</span></li><li><span>证书：全国计算机二级C语言，大学生节能减排大赛三等奖，普通话二级乙等</span></li><li><span>其他技能：C1驾照，ISTQB Certified Tester</span></li></ul><center>*****<b>English Version</b>*****</center><p><strong><span>Weiren SONG</span></strong><span>                                Phone:18801910690</span></p><p><span>Shanghai University| Master           E-Mail：</span><a href='mailto:songweiren_shu@163.com' target='_blank' class='url'>songweiren_shu@163.com</a><span>                                 </span><img src=".\image\header.jpg" alt="header" style="zoom:12%;" /></p><p><span>											</span><span>birthday：1992.04</span></p><p><strong><span>Blog</span></strong><span>:        </span><a href='https://blog.csdn.net/wujizhishang' target='_blank' class='url'>https://blog.csdn.net/wujizhishang</a></p><p><strong><span>Github</span></strong><span>:    </span><a href='https://github.com/DarrenSong' target='_blank' class='url'>https://github.com/DarrenSong</a></p><p><strong><em><span>Job Intention</span></em></strong><span> ：Software Engineer，Algorithm Engineer</span></p><p><span>I have graduated from the master&#39;s degree for almost 4 years. I have worked at Yunke servo for 1 year. In Yunke, I was responsible for the development of the communication module on the DSP2812 platform using C. I am familiar with the some communication protocol such as MIII, CANOpen, and TCP/IP etc, also good at the programming languages such as C/C++, C# and Matlab. I am familiar with program development on Windows and Unbutu. I joined ZF(China) as a software engineer in 8.2018. I develop the function of local customer requirements with Germany team using C++, and also do some on-site supports for local customers. I have worked as a software engineer Since 2021.3 in UIH Company. I am proficient in some softwares such as VS2013/Source Insight/CCS3.3/Keil5.0 for coding and Git,ClearCase for version control and so on. I am hardworking, practical and studious, and have a good sense of teamwork and can integrate into the team as soon as possible. Personal WebSite: </span><a href='http://www.songweiren.top' target='_blank' class='url'>www.songweiren.top</a></p><hr /><h5 id='education'><span>Education</span></h5><hr /><table border="0">
     <tbody><tr>
         <td>2010.9-2014.7</td>
         <td align="center"><b>Shanghai University</b>  (Mechatronic Engineering &amp; Automation)</td>
@@ -537,17 +633,22 @@ header, .context-menu, .megamenu-content, footer{
         <td align="center"><b>Shanghai University</b>  (Mechatronic &amp; Electric Engineering)</td>
         <td align="center"> Master</td>
     </tr>
-</tbody></table><h5><a name="work-experience" class="md-header-anchor"></a><span>Work Experience</span></h5><hr /><table width="400" border="0">
+</tbody></table><h5 id='work-experience'><span>Work Experience</span></h5><hr /><table width="400" border="0">
     <tbody><tr>
         <td>2017.6-2018.8</td>
         <td align="center">YunKe Intelligent Servo Control Technology Co., Ltd.</td>
         <td align="center">SW Engineer</td>
     </tr>
         <tr>
-        <td>2018.8-To Present</td>
-        <td align="center"><b> ZF (China) Investment Co., Ltd.</b></td>
+        <td>2018.8-To 2021.2</td>
+        <td align="center"> ZF (China) Investment Co., Ltd.</td>
         <td align="center">SW Engineer</td>
     </tr>
-</tbody></table><h5><a name="projects-experience" class="md-header-anchor"></a><span>Projects Experience</span></h5><hr /><ul><li><p><span>Project Name：Develop the communication module of Servo driver(YunKe Servo)</span></p><p><span>Description：develop MIII and CANOpen communication protocol part for Servo driver on DSP2812 platform, and programming language is C language</span></p></li><li><p><span>Project Name：Sniffer Tool Via C++ based on Windows (YunKe Servo)</span></p><p><span>Description：The IDE I used is Qt, I implement the coding for capturing the data and decode the data.</span></p></li><li><p><span>Project Name：Windows PC Software for config Servo driver(YunKe Servo)</span></p><p><span>Description：develop the Windows PC software that be used to config servo driver using C#，which contain Oscilloscope. The IDE used is Visual Studio 2015, and the programming language is C# (WinForm). The PC software send command to servo driver to config the parameter by serial port.</span></p></li><li><p><span>Project Name：Change the Gear shift strategy of TCU (ZF China)</span></p><p><span>Description： there are 2 shift lever on the vehicle, the one is CAN shift lever, and another one is digital FNR lever. We need change the propriety of these levers regarding different customer requirements. </span></p></li><li><p><span>Project Name：add the backup error memory for TCU (ZF China)</span></p><p><span>Description：some error codes of TCU is the key point for solving the actual problem. So these error codes should not be clear by user, they should only be deleted by manufacturer. 。  </span></p></li><li><p><span>Project Name：add a broadcast CAN message from J1939(AUXIO1) (ZF China)</span></p><p><span>Description：a part of our customer need the IO signals from TCU, so we need give a feedback of our signals. The general solution is that TCU broadcast a CAN message which include all IO signals of TCU for this purpose, so they can get the signals from this message</span></p></li></ul><h5><a name="professional-skills" class="md-header-anchor"></a><span>Professional Skills</span></h5><hr /><p><span>C/C++、C#、Python、Shell、makefile、markdown、Data Structures And Algorithms、VectorTools(CANape,CANoe,CANalyzer)</span></p><h5><a name="integrated-skills" class="md-header-anchor"></a><span>Integrated Skills</span></h5><hr /><ul><li><span>Language ：Chinese, English</span></li><li><span>Certificate：National Computer Rank Examination, Energy Saving &amp;Emission Reduction</span></li><li><span>Other Skills：C1 driving license, ISTQB Certified Tester</span></li></ul></div>
+         <tr>
+        <td>2021.3-To Present</td>
+        <td align="center"><b>United Imaging Healthcare Co., Ltd</b></td>
+        <td align="center">SW Engineer</td>
+    </tr>
+</tbody></table><h5 id='projects-experience'><span>Projects Experience</span></h5><hr /><ul><li><p><span>Project Name：Develop the communication module of Servo driver(YunKe Servo)</span></p><p><span>Description：develop MIII and CANOpen communication protocol part for Servo driver on DSP2812 platform, and programming language is C language</span></p></li><li><p><span>Project Name：Sniffer Tool Via C++ based on Windows (YunKe Servo)</span></p><p><span>Description：The IDE I used is Qt, I implement the coding for capturing the data and decode the data.</span></p></li><li><p><span>Project Name：Windows PC Software for config Servo driver(YunKe Servo)</span></p><p><span>Description：develop the Windows PC software that be used to config servo driver using C#，which contain Oscilloscope. The IDE used is Visual Studio 2015, and the programming language is C# (WinForm). The PC software send command to servo driver to config the parameter by serial port.</span></p></li><li><p><span>Project Name：Change the Gear shift strategy of TCU (ZF China)</span></p><p><span>Description： there are 2 shift lever on the vehicle, the one is CAN shift lever, and another one is digital FNR lever. We need change the propriety of these levers regarding different customer requirements. </span></p></li><li><p><span>Project Name：add the backup error memory for TCU (ZF China)</span></p><p><span>Description：some error codes of TCU is the key point for solving the actual problem. So these error codes should not be clear by user, they should only be deleted by manufacturer. 。  </span></p></li><li><p><span>Project Name：add a broadcast CAN message from J1939(AUXIO1) (ZF China)</span></p><p><span>Description：a part of our customer need the IO signals from TCU, so we need give a feedback of our signals. The general solution is that TCU broadcast a CAN message which include all IO signals of TCU for this purpose, so they can get the signals from this message</span></p></li><li><p><span>Project Name：Tube Control module  (UIH)</span></p><p><span>Description：Pending Update...</span></p></li></ul><h5 id='professional-skills'><span>Professional Skills</span></h5><hr /><p><span>C/C++、C#、Python、Shell、makefile、markdown、Data Structures And Algorithms、VectorTools(CANape,CANoe,CANalyzer)</span></p><h5 id='integrated-skills'><span>Integrated Skills</span></h5><hr /><ul><li><span>Language ：Chinese, English</span></li><li><span>Certificate：National Computer Rank Examination, Energy Saving &amp;Emission Reduction</span></li><li><span>Other Skills：C1 driving license, ISTQB Certified Tester</span></li></ul></div></div>
 </body>
 </html>
