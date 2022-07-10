@@ -25,17 +25,17 @@ bash <(curl -s -L https://git.io/v2ray.sh)
 选择端口，如果没有特别的需求，使用默认的端口即可，直接回车
 是否屏蔽广告，除非你真的需要，一般来说，直接回车即可
 
-![v2ray1](..\image\v2ray1.jpg)
+![](https://s3.bmp.ovh/imgs/2022/07/10/773de499e23300d1.jpg)
 
 是否配置 Shadowsocks ，如果不需要就直接回车，否则就输入 Y 回车
 Shadowsocks 端口，密码，加密方式这些东西自己看情况配置即可，我个人当然是全部直接回车。。
 OK，按回车继续
 
-![v2ray2](..\image\v2ray2.jpg)
+![](https://s3.bmp.ovh/imgs/2022/07/10/afa364f8da6979cf.jpg)
 
 安装信息，如果确保没有什么问题了，按回车继续
 
-![v2ray3](..\image\v2ray3.jpg)
+![](https://s3.bmp.ovh/imgs/2022/07/10/3409249d0fdfb2ba.jpg)
 
 (备注，安装信息会因你的配置而变化..不用在乎这截图)
 (备注，由于我懒…脚本显示的一些信息可能会跟上面的截图有少许不同，但实际上都是很简单明了的)
@@ -46,7 +46,7 @@ OK，按回车继续
 
 OK，此时 V2Ray 已经安装完成了。
 
-![v2ray4](..\image\v2ray4.jpg)
+![](https://s3.bmp.ovh/imgs/2022/07/10/17e8ac36951c6f76.jpg)
 
 如上图所示，V2Ray 配置信息，Shadowsocks 配置信息都有了
 如果你使用过 Shadowsocks ，那么现在你可以测试一下 Shadowsocks 配置了，看看是否能正常使用。
@@ -65,7 +65,7 @@ OK，此时 V2Ray 已经安装完成了。
 
 现在可以尝试一下输入 `v2ray` 回车，即可管理 V2Ray
 
-![v2ray5](..\image\v2ray5.jpg)
+![](https://s3.bmp.ovh/imgs/2022/07/10/baed04032c40c1f7.jpg)
 
 #### TCP 阻断
 
