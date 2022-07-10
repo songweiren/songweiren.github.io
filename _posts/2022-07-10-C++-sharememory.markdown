@@ -71,8 +71,16 @@ int main()
 		LPVOID lpBase = MapViewOfFile(mapFileHandle, FILE_MAP_ALL_ACCESS, 0, 0, 0);
 		// 将共享内存数据拷贝出来
 		char szBuffer[BUF_SIZE] = { 0 };
-		//strcpy(szBuffer, (char*)lpBase);
-		memcpy(szBuffer, lpBase, 24);
+
+		//辅助指针用于将数据从共享内存中Copy出来
+		char* pbuf = szBuffer;
+		char* tmp = (char*)lpBase;
+
+		while (*tmp++!='\0')
+		{
+			*pbuf++ = *tmp;
+		}
+		//memcpy(szBuffer, (char*)lpBase, sizeof(lpBase));
 		printf("%s", szBuffer);
 
 		// 解除文件映射
