@@ -92,8 +92,8 @@ int main()
 
 ##### 参考
 
-[](https://blog.csdn.net/tojohnonly/article/details/70246965)
+[https://blog.csdn.net/tojohnonly/article/details/70246965]()
 
 ###### Linux 
 
-[](https://www.yiibai.com/ipc/shared_memory.html)
+[https://www.yiibai.com/ipc/shared_memory.html]()
