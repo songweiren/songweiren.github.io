@@ -25,7 +25,7 @@ bash <(curl -s -L https://git.io/v2ray.sh)
 选择端口，如果没有特别的需求，使用默认的端口即可，直接回车
 是否屏蔽广告，除非你真的需要，一般来说，直接回车即可
 
-![](https://s3.bmp.ovh/imgs/2022/07/10/773de499e23300d1.jpg)
+![](/image/v2ray1.jpg)
 
 是否配置 Shadowsocks ，如果不需要就直接回车，否则就输入 Y 回车
 Shadowsocks 端口，密码，加密方式这些东西自己看情况配置即可，我个人当然是全部直接回车。。
