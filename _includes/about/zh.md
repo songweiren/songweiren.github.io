@@ -8,5 +8,6 @@
 - <a href="https://blog.csdn.net/wujizhishang" target="_blank">CSDN</a>
 - <a href="https://www.cnblogs.com/songweiren/" target="_blank">博客园</a>
 - <a href="https://github.com/DarrenSong" target="_blank">Github</a>
+- <a href="http://43.248.185.75:10092/hupai/" target="_blank">开发的小工具</a>
 - <a href="https://weibo.com/u/2465540232" target="_blank">新浪微博</a>
 - <a href="http://songweiren.github.io/SWR_Resume.html" target="_blank">个人简历</a>
