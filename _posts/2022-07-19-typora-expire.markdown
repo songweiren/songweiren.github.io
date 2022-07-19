@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "一键修改电源选项脚本"
+title:  "typora过期打开脚本"
 date:   2022-07-19 18:49:52 +0800
 categories: Windows  
 tags: Windows
