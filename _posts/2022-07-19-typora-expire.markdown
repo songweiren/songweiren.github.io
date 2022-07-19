@@ -16,7 +16,7 @@ echo ChangeDateTime:2020/1/1
 start C:\Progra~1\Typora\Typora.exe
 ::start "" "C:\Program Files\Typora\Typora.exe"
 echo Start Typora...
-choice /t 1 /d y /n >nul
+choice /t 5 /d y /n >nul
 date %now%
 echo restore time
 exit
