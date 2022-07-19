@@ -1,9 +1,11 @@
-layout	title	date	categories	tags
-post
-一键修改电源选项脚本
-2022-04-24 18:49:52 +0800
-Windows
-Windows
+---
+layout: post
+title:  "一键修改电源选项脚本"
+date:   2022-07-19 18:49:52 +0800
+categories: Windows  
+tags: Windows
+---
+##### typora过期打开脚本
 
 typora过期打开脚本
 ```bat
