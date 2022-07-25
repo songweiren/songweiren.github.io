@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "C# 获取本地IP"
+date:   2022-07-25 18:49:52 +0800
+categories: CSharp
+tags: CSharp
+---
+c#获取本地IP，在存在多个网卡的情况下比较精确的方法用第一个
+
+##### 用Socket
+
+```c#
+string localIP;
+using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+{
+    socket.Connect("8.8.8.8", 65530);
+    IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+    localIP = endPoint.Address.ToString();
+}
+
+```
+##### 传统方法 
+```c#
+public static string GetLocalIPAddress()
+{
+    var host = Dns.GetHostEntry(Dns.GetHostName());
+    foreach (var ip in host.AddressList)
+    {
+        if (ip.AddressFamily == AddressFamily.InterNetwork)
+        {
+            return ip.ToString();
+        }
+    }
+    throw new Exception("No network adapters with an IPv4 address in the system!");
+}
+
+```
+
+##### 通过硬件方法
+```c#
+ManagementObjectSearcher query1 = new ManagementObjectSearcher(sqlStr);//搜寻WMI类别
+            ManagementObjectCollection queryCollection1 = query1.Get();//获取各种管理对象集合
+
+            string[] IPString = new string[100];
+            int x = 0;
+            string[] temp = new string[100];
+            foreach (ManagementObject mo in queryCollection1)//获取本地的网络配置
+            {
+                temp = mo["IPAddress"] as string[];
+                if (temp != null)
+                {
+                    foreach (string st in temp)
+                    {
+						Console.WriteLine(st);
+					}
+				}
+				
+			}
+
+```
+
+参考
+> https://stackoverflow.com/questions/6803073/get-local-ip-address
