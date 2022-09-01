@@ -63,6 +63,6 @@ patch:
 然后用"Ctrl+`"，选择朙月拼音简化字，接下来重新部署小狼毫，就可以使用搜狗词库了。
 
 ##### 参考
-> [https://blog.csdn.net/qq_46207024/article/details/114411457](https://blog.csdn.net/qq_46207024/article/details/114411457)
-> [https://blog.csdn.net/qq_46207024/article/details/114411457](https://blog.csdn.net/qq_46207024/article/details/114411457)
-> [https://sspai.com/post/55699](https://sspai.com/post/55699)
+> [Windows下小狼毫输入法（Rime）的安装与配置（含导入搜狗词库）](https://www.cnblogs.com/frederichchen/p/5074689.html)
+> [自由输入法RIME简明配置指南](https://sspai.com/post/55699)
+> [小狼毫Rime输入法简单配置指南](https://blog.csdn.net/qq_46207024/article/details/114411457)
