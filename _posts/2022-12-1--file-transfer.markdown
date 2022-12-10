@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "typora过期File Transfer打开脚本"
+title:  "File Transfer/不同设备之间文件传输"
 date:   2022-12-10 18:49:52 +0800
 categories: Windows  
 tags: Windows/文件传输
