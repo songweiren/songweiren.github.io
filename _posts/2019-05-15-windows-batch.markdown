@@ -231,3 +231,5 @@ set /a num+=1
 ::::::::::::::::::::::::::::::::
 ###### 参考
 >[Windows 批处理脚本学习教程](http://docs.30c.org/dosbat/chapter03/)
+>[Windows批处理整理](http://localnetwork.cn/project-2/doc-148/)
+>[Python示例及教程](http://localnetwork.cn/project-4/doc-333/)
