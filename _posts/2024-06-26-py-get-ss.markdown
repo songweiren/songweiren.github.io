@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Python利用bs解析GitHub Page"
+date:   2024-06-26 20:49:52 +0800
+categories: python  
+tags: python
+---
+
+Python利用bs解析GitHub Page
+``` bash
+pip install requests
+pip install BeautifulSoup
+```
+然后，使用以下代码：
+```python
+import requests
+from bs4 import BeautifulSoup
+# 网页请求
+url = 'https://github.com/Alvin9999/new-pac/wiki/ss免费账号'
+# 解析数据
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+#查找pre标签，第二个便是SS链接
+lst = soup.find_all('pre')
+lst[1].get_text()
+```
