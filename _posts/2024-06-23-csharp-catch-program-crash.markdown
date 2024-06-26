@@ -7,7 +7,7 @@ tags: c#
 ---
 
 在Program.cs中的Main方法中加入以下代码
-```C#
+```CSharp
   Application.EnableVisualStyles();
   Application.SetCompatibleTextRenderingDefault(false);
   Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
@@ -16,7 +16,7 @@ tags: c#
 
 ```
 在Program.cs中实现这个两个异常捕获方法
-```C#
+```CSharp
 private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
 {
       
