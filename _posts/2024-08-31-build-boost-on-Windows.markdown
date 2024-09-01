@@ -30,7 +30,7 @@ tags: cmake
 #也可用stage代替install指令，但相应的指令也要改
 
 ```
---build-dir：编译过程中产生的临时文件存放目录
-toolset：工具集
---prefix：最后生成的库存放目录
---build-type：编译类型，complete可以全部编译所有可能
+--build-dir：编译过程中产生的临时文件存放目录<br>
+toolset：工具集<br>
+--prefix：最后生成的库存放目录<br>
+--build-type：编译类型，complete可以全部编译所有可能<br>
