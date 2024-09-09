@@ -6,8 +6,8 @@ categories: IT
 tags: IT/小技巧
 ---
 ##### 打开Cheat Engine
-![](../image/cheateng1.png)
+![打开Cheat Engine](https://raw.githubusercontent.com/songweiren/songweiren.github.io/master/image/cheateng1.png)
 ##### 找到百度云进程
-![](../image/cheateng2.png)
+![找到百度云进程](https://raw.githubusercontent.com/songweiren/songweiren.github.io/master/image/cheateng2.png)
 ##### 修改值
-![](../image/cheateng3.png)
+![修改值](https://raw.githubusercontent.com/songweiren/songweiren.github.io/master/image/cheateng3.png)
