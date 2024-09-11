@@ -96,18 +96,19 @@ C:>ECHO C:\CPAV\BOOTSAFE>>AUTOEXEC.BAT向⾃动批处理⽂件中追加内容
 C:>TYPE AUTOEXEC.BAT显⽰该⾃动批处理⽂件
 @ECHO OFF
 C:\CPAV\BOOTSAFE
-
 ```
+
   8. 向打印机输出打印内容或打印控制码
   格式：ECHO 打印机控制码>;PRN
   ECHO 打印内容>;PRN
   下⾯的例⼦是向M－1724打印机输⼊打印控制码。＜Alt＞156是按住Alt键在⼩键盘键⼊156，类似情况依此类
+
 ``` bash
 C:>ECHO +156+42+116>;PRN（输⼊下划线命令FS＊t）
 C:>ECHO \[email=+155@]+155@>;PRN\[/email]（输⼊初始化命令ESC@）
 C:>ECHO.>;PRN（换⾏）
-
 ```
+
   9. 使喇叭鸣响
   C:>ECHO ^G
   “G”是在dos窗⼝中⽤Ctrl＋G或Alt＋007输⼊，输⼊多个G可以产⽣多声鸣响。使⽤⽅法是直接将其加⼊批处理⽂件中或做成批处理⽂件调⽤,这⾥的“^G”属于特殊符号的使⽤，请看本⽂后⾯的章节
