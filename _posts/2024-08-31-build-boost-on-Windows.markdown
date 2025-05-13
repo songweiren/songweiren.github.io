@@ -34,3 +34,7 @@ tags: cmake
 toolset：工具集<br>
 --prefix：最后生成的库存放目录<br>
 --build-type：编译类型，complete可以全部编译所有可能<br>
+
+编译指令
+https://tesseract-ocr.github.io/tessdoc/Compiling.html
+https://tesseract-ocr.github.io/tessdoc/Compiling.html#windows
