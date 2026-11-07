@@ -16,6 +16,7 @@ WSL（Windows Subsystem for Linux）可在 Windows 10 上直接运行 Ubuntu，�
 - **在线安装**（一键命令）
 - **离线安装**（WSL 本体 MSI + Ubuntu `.wsl`）
 - 迁移发行版位置、常用命令与排错
+- apt 软件源说明（默认非国内源；Ubuntu 24.04 / 22.04 换源）
 
 系统要求：Windows 10 **2004** 及以上（Build **19041+**）。可用 `Win + R` → `winver` 查看。
 
@@ -102,6 +103,8 @@ uname -a
 lsb_release -a
 sudo apt update && sudo apt upgrade -y
 ```
+
+> 官方镜像默认多为**国际 apt 源**，国内较慢可先换源再 update，见下文「apt 软件源」。Ubuntu 24.04 改 `/etc/apt/sources.list.d/ubuntu.sources`。
 
 ---
 
@@ -279,6 +282,91 @@ Ubuntu 访问 Windows：`/mnt/c/Users/你的用户名`
 
 ---
 
+### apt 软件源（默认不是国内源）
+
+官方 Ubuntu WSL 镜像的 apt 源一般指向 **国际源**（`archive.ubuntu.com` / `security.ubuntu.com`），**不会自动换成中国镜像**。国内访问慢或超时时，再手动换源。
+
+#### 查看当前源
+
+```bash
+# Ubuntu 24.04 常见
+cat /etc/apt/sources.list.d/ubuntu.sources
+
+# 兼容查看
+cat /etc/apt/sources.list
+ls /etc/apt/sources.list.d/
+```
+
+若出现 `archive.ubuntu.com`、`security.ubuntu.com` → 国际源；  
+若出现 `mirrors.aliyun.com`、`tuna.tsinghua.edu.cn`、`mirrors.ustc.edu.cn` 等 → 国内源。
+
+#### Ubuntu 24.04（noble，推荐按这个改）
+
+24.04 多用 DEB822 格式的 `ubuntu.sources`，不是老的单文件 `sources.list`。
+
+```bash
+sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+sudo nano /etc/apt/sources.list.d/ubuntu.sources
+```
+
+可将内容改为清华镜像示例（代号 **noble**）：
+
+```text
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/ubuntu/
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/ubuntu/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+```
+
+保存后：
+
+```bash
+sudo apt update
+```
+
+一行替换（按实际 URI 是 http 还是 https 都覆盖）：
+
+```bash
+sudo sed -i 's|http://archive.ubuntu.com/ubuntu/|https://mirrors.tuna.tsinghua.edu.cn/ubuntu/|g' /etc/apt/sources.list.d/ubuntu.sources
+sudo sed -i 's|http://security.ubuntu.com/ubuntu/|https://mirrors.tuna.tsinghua.edu.cn/ubuntu/|g' /etc/apt/sources.list.d/ubuntu.sources
+sudo sed -i 's|https://archive.ubuntu.com/ubuntu/|https://mirrors.tuna.tsinghua.edu.cn/ubuntu/|g' /etc/apt/sources.list.d/ubuntu.sources
+sudo sed -i 's|https://security.ubuntu.com/ubuntu/|https://mirrors.tuna.tsinghua.edu.cn/ubuntu/|g' /etc/apt/sources.list.d/ubuntu.sources
+sudo apt update
+```
+
+#### Ubuntu 22.04（jammy）
+
+22.04 常见为 `/etc/apt/sources.list`：
+
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo sed -i 's|http://archive.ubuntu.com|https://mirrors.tuna.tsinghua.edu.cn|g' /etc/apt/sources.list
+sudo sed -i 's|http://security.ubuntu.com|https://mirrors.tuna.tsinghua.edu.cn|g' /etc/apt/sources.list
+sudo apt update
+```
+
+#### 其他常用国内镜像
+
+把上面地址里的域名换成即可：
+
+| 镜像 | 地址前缀 |
+|------|----------|
+| 清华 TUNA | `https://mirrors.tuna.tsinghua.edu.cn/ubuntu/` |
+| 阿里云 | `https://mirrors.aliyun.com/ubuntu/` |
+| 中科大 | `https://mirrors.ustc.edu.cn/ubuntu/` |
+| 华为云 | `https://mirrors.huaweicloud.com/ubuntu/` |
+
+> 换源后务必 `sudo apt update`。若 `ubuntu.sources` 格式与示例不一致，先 `cat` 核对再改 `URIs` 行。
+
+---
+
 ### 常见问题
 
 #### `WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED`
@@ -324,3 +412,5 @@ passwd 你的用户名
 - [WSL 本体 Releases](https://github.com/microsoft/WSL/releases)
 - [Get Ubuntu on WSL](https://ubuntu.com/download/wsl)
 - [Ubuntu 22.04 发布目录（含 wsl 镜像）](https://releases.ubuntu.com/22.04/)
+- [Ubuntu 24.04 发布目录（含 wsl 镜像）](https://releases.ubuntu.com/24.04/)
+- [清华 Ubuntu 镜像帮助](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
