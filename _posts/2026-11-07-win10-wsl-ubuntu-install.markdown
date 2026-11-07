@@ -125,9 +125,24 @@ sudo apt update && sudo apt upgrade -y
 
 #### 离线步骤
 
-**① 开启功能并重启**（见上文 dism 两条命令）。
+**① 开启可选组件并重启**
 
-**② 安装 WSL 本体**
+管理员 PowerShell（二选一）：
+
+```powershell
+# 方式 A：只装 WSL 组件，不装发行版（适合后续离线装 Ubuntu）
+wsl --install --no-distribution
+
+# 方式 B：手动开启功能
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+完成后**必须重启**。若未开组件就执行 `wsl -l -v`，会报：
+
+`Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED`（缺少「适用于 Linux 的 Windows 子系统」可选组件）。
+
+**② 安装 WSL 本体 MSI**
 
 双击 `wsl.x.x.x.x.x64.msi`，或：
 
@@ -141,7 +156,17 @@ msiexec /i "E:\离线包\wsl.3.0.3.0.x64.msi"
 wsl --version
 ```
 
-**③ 安装 Ubuntu 镜像**
+**③ 设置默认版本为 WSL 2**
+
+新版 MSI 多数已默认 WSL 2，但离线/旧机仍建议显式执行一次，再装发行版：
+
+```powershell
+wsl --set-default-version 2
+```
+
+> 该命令影响**之后新装**的发行版默认版本；已装成 WSL 1 的需再用 `wsl --set-version <发行版名> 2` 转换。
+
+**④ 安装 Ubuntu 镜像**
 
 - 双击 `ubuntu-22.04.5-wsl-amd64.wsl`，或：
 
@@ -149,7 +174,7 @@ wsl --version
 wsl --install --from-file "E:\离线包\ubuntu-22.04.5-wsl-amd64.wsl"
 ```
 
-若文件无 `.wsl` 后缀、实际是可 import 的根文件系统，可用：
+若文件无 `.wsl` 后缀、实际是可 import 的根文件系统，可用（此处已用 `--version 2` 明确指定）：
 
 ```powershell
 mkdir D:\WSL\Ubuntu-22.04
@@ -178,10 +203,16 @@ wsl --shutdown
 wsl -d Ubuntu-22.04
 ```
 
-**④ 验证**
+**⑤ 验证**
 
 ```powershell
 wsl -l -v
+```
+
+确认对应发行版的 `VERSION` 为 `2`。若为 `1`：
+
+```powershell
+wsl --set-version Ubuntu-22.04 2
 ```
 
 ---
@@ -249,6 +280,16 @@ Ubuntu 访问 Windows：`/mnt/c/Users/你的用户名`
 ---
 
 ### 常见问题
+
+#### `WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED`
+
+报错「此应用程序需要适用于 Linux 的 Windows 子系统可选组件」时，说明 MSI 已装但可选组件未启用或未重启：
+
+```powershell
+wsl --install --no-distribution
+```
+
+然后**重启**，再执行 `wsl -l -v` / 安装 Ubuntu。
 
 #### 提示需启用虚拟机平台 / 注册失败
 
